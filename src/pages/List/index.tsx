@@ -4,9 +4,10 @@ import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import SelectInput from '../../components/SelectInput';
 import { useParams } from 'react-router-dom';
 import { Container, Content, Filters } from './styles';
-
+import formatCurrency from '../../utils/formatCurrency';
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
+import formatDate from '../../utils/formatDate';
 
 interface IData {
   id: string;
@@ -54,10 +55,10 @@ const List: React.FC = () => {
       return {
         id: String(Math.random() * data.length),
         description: item.description,
-        amountFormatted: item.amount,
+        amountFormatted: formatCurrency(Number(item.amount)),
         type: item.type,
         frequency: item.frequency,
-        dateFormatted: item.date,
+        dateFormatted: formatDate(item.date),
         tagColor: item.frequency === 'recorrente' ? '#4e41f0' : '#e44c4e',
       };
     });
@@ -82,9 +83,9 @@ const List: React.FC = () => {
       </Filters>
 
       <Content>
-        {data.map((item) => (
+        {data.map((item, index) => (
           <HistoryFinanceCard
-            key={item.id}
+            key={index}
             tagColor={item.tagColor}
             title={item.description}
             subtitle={item.dateFormatted}
