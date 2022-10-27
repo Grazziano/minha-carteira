@@ -6,6 +6,9 @@ import listOfMonths from '../../utils/months';
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 import WalletBox from '../../components/WalletBox';
+import MessageBox from '../../components/MessageBox';
+import happyImg from '../../assets/happy.svg';
+import sadImg from '../../assets/sad.svg';
 
 const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
@@ -111,6 +114,20 @@ const Dashboard: React.FC = () => {
           footerlabel="atualizado com base nas entradas e saídas"
           icon="arrowDown"
           color="#e44c4e"
+        />
+
+        <MessageBox
+          title="Muito Bem!"
+          description="Sua carteira está positiva!"
+          footerText="Continue assim. Considere investir o seu saldo."
+          icon={happyImg}
+        />
+        
+        <MessageBox
+          title="Muito Bem!"
+          description="Sua carteira está positiva!"
+          footerText="Continue assim. Considere investir o seu saldo."
+          icon={sadImg}
         />
       </Content>
     </Container>
