@@ -10,6 +10,7 @@ import MessageBox from '../../components/MessageBox';
 import happyImg from '../../assets/happy.svg';
 import sadImg from '../../assets/sad.svg';
 import grinningImg from '../../assets/grinning.svg';
+import PieChart from '../../components/PieChart';
 
 const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
@@ -192,6 +193,8 @@ const Dashboard: React.FC = () => {
           footerText={message.footerText}
           icon={message.icon}
         />
+
+        <PieChart />
       </Content>
     </Container>
   );
