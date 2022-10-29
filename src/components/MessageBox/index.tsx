@@ -1,6 +1,4 @@
 import React from 'react';
-import happyImg from '../../assets/happy.svg';
-import sadImg from '../../assets/sad.svg';
 import { Container } from './styles';
 
 interface IMessageBoxProps {
@@ -20,7 +18,7 @@ const MessageBox: React.FC<IMessageBoxProps> = ({
     <Container>
       <header>
         <h1>
-          {title} <img src={happyImg} alt={title} />
+          {title} <img src={icon} alt={title} />
         </h1>
         <p>{description}</p>
       </header>
