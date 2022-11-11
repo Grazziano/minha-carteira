@@ -4,7 +4,7 @@ import { useTheme } from './hooks/theme';
 import Routes from './routes';
 import GlobalStyles from './styles/GlobalStyles';
 
-const App: React.FC = () => {
+const App = () => {
   const { theme } = useTheme();
 
   return (
