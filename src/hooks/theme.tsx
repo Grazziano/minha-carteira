@@ -23,9 +23,13 @@ interface ITheme {
   };
 }
 
+interface IChildren {
+  children: React.ReactNode;
+}
+
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
-const ThemeProvider: React.FC = ({ children }: any) => {
+const ThemeProvider = ({ children }: IChildren) => {
   const [theme, setTheme] = useState<ITheme>(() => {
     const themeSaved = localStorage.getItem('@minha-carteira:theme');
 

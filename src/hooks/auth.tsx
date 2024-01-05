@@ -6,9 +6,13 @@ interface IAuthContext {
   signOut(): void;
 }
 
+interface IChildren {
+  children: React.ReactNode;
+}
+
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
-const AuthProvider: React.FC = ({ children }: any) => {
+const AuthProvider = ({ children }: IChildren) => {
   const [logged, setLogged] = useState<boolean>(() => {
     const isLogged = localStorage.getItem('@minha-carteira:logged');
 
